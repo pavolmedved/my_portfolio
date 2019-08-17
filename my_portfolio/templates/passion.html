@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<hr>
+
+<h1>Passion</h1>
+
+<div class="card-deck">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1506452819137-0422416856b8" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Creativity</h5>
+            <p class="card-text">We can find art in everything. It is up to us how we handle our talent!</p>
+            <a class="btn btn-dark" href="{{ url_for('creativity') }}">creativity<span class=""></span></a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1540660290370-8aa90e451e8a" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Baking</h5>
+            <p class="card-text">I have been baking from my childhood. I do love make my cakes tasty and pretty!</p>
+            <a class="btn btn-dark" href="{{ url_for('baking') }}">baking <span class=""></span></a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1531266752426-aad472b7bbf4" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Travel</h5>
+            <p class="card-text">All my travel is adventure for me, special when I am going somewhere for first time!</p>
+            <a class="btn btn-dark" href="{{ url_for('travel') }}">travel <span class=""></span></a>
+          </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555202926-4703eaa1fa74" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Sport</h5>
+                <p class="card-text">I love to stay active, running and lifting is best recovery for spirit!</p>
+                <a class="btn btn-dark" href="{{ url_for('sport') }}">sport <span class=""></span></a>
+                </button>
+        </div>
+      </div>
+</div>
+
+<hr>
+
+{% endblock %}

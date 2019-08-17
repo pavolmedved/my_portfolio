@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+ 
+{% block body %}
+<hr>
+<h1>Contact</h1>
+ 
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+ 
+  <form action="{{ url_for('contact') }}" method=post>
+    {{ form.hidden_tag() }}
+
+    <div class="card mb-4" style="max-width: 1100px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://scontent.ford4-1.fna.fbcdn.net/v/t1.0-9/60400637_10216684706002535_9135189907227017216_n.jpg?_nc_cat=102&_nc_oc=AQnegqxI4sda80B7ETjAWh1W7DGY1bvxHGfMjt5IL4uGuyd9NmoWN3u3k64tn55AtQY&_nc_ht=scontent.ford4-1.fna&oh=3b8dce8eacc1f555f19c35e98b768624&oe=5DD573A2" class="card-img alt="...>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      {{ form.name.label }}
+                      {{ form.name(class="form-control" )}}
+                    </div>
+                    <div class="form-group col-md-7">
+                      {{ form.email.label }}
+                      {{ form.email(class="form-control" )}}
+                    </div>
+                  </div>
+                  <div class="form-row">
+                  <div class="form-group col-md-12">
+                      {{ form.message.label }}
+                      {{ form.message(class="form-control" )}}
+                      <div>
+                          {{ form.submit(class="btn btn-dark" )}}
+                       </div> 
+                    </div>
+                  </div>          
+                </form>
+
+        
+
+
+              
+              <p class="card-text"><small class="text-muted">Please follow me.</small></p>
+              <a href="https://www.facebook.com/pavol.medved.5" class="card-link">facebook</a>
+              <a href="#" class="card-link">instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </form>
+
+<hr>
+{% endblock body %}
