@@ -5,6 +5,15 @@ from my_portfolio import app
 from my_portfolio.models import db,Contact
 
 
+#sendgrind import
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+sendgrid_key = "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"
+
+app.secret_key = 'development key'
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -30,15 +39,21 @@ def resume():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
         form = ContactForm()
-        name = form.name.data
-        email = form.email.data
-        message =  form.message.data
-        contacting = Contact(name,email,message)
-        print(name,email,message)
-        db.session.add(contacting)
-        db.session.commit()
 
-        return render_template('contact.html',form=form)
+        if request.method == "POST":
+                message = Mail(
+                        from_email=form.email.data,
+                        to_emails="22pavolmedved@gmail.com",
+                        subject='Welcome',
+                        html_content='<strong>{}</strong> <strong> {} </strong> <strong> {} </strong>'.format(form.name.data,form.message.data,form.email.data))
+
+                sg = SendGridAPIClient(sendgrid_key)
+                response = sg.send(message) 
+                print(response.status_code, response.body, response.headers) 
+
+        return render_template('contact.html',form=form),200
+
+        
 
 @app.route('/send')
 def send():
