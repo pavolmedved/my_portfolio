@@ -10,7 +10,7 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-sendgrid_key = "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"
+sendgrid_key = "apikey"
 
 app.secret_key = 'development key'
 
