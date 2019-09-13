@@ -26,6 +26,10 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route('/mywork')
+def mywork():
+        return render_template('mywork.html')
+
 @app.route('/passion')
 def passion():
     return render_template('passion.html')
